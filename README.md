@@ -94,8 +94,9 @@ Headers
 Nenhum.
 
 Body
-Nome Tipo Requerido Descrição
-amount number Sim Saldo a ser adicionado
+| Nome | Tipo | Requerido | Descrição |
+|---|---|---|---|
+| amount | number | Sim | Saldo a ser adicionado |
 
 {
 "amount": 10000
@@ -154,9 +155,10 @@ Headers
 Nenhum.
 
 Body
-Nome Tipo Requerido Descrição
-name string Sim Nome do quarto
-price number Sim preço do quarto
+| Nome | Tipo | Requerido | Descrição |
+|---|---|---|---|
+| name | string | Sim | Nome do quarto |
+| price | number | Sim | preço do quarto |
 
 {
 "name": "Quarto suíte presidencial",
@@ -171,10 +173,10 @@ Headers
 Nenhum.
 
 Body
-| Nome | Tipo | Requerido |Descrição|
-|---|---|---|---|---|
-| roomId  | Array | Sim | Id do Quarto |
-| userId  | string | Sim | Id do usuário que está fazendo a reserva |
+| Nome | Tipo | Requerido | Descrição |
+|---|---|---|---|
+| roomId | Array | Sim | Id do Quarto |
+| userId | string | Sim | Id do usuário que está fazendo a reserva |
 | checkin | date | Sim | Data de Check-in |
 | checkout | date | Sim | Data de Check-out |
 | numberRooms | number | Sim | Número de quartos que estão sendo reservados |

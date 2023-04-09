@@ -42,10 +42,10 @@ npm start
 #### POST /user
 Cria um novo usuário na base de dados.</br>
 
-Headers</br>
+##### Headers
 Nenhum.</br>
 
-Body
+##### Body
 | Nome  | Tipo  | Requerido  |  Descrição |
 |---|---|---|---|
 | name | string | Sim | Nome do usuário |
@@ -63,37 +63,37 @@ Exemplo</br>
 #### GET /user
 Busca todos os usuários na base de dados.</br>
 
-Headers</br>
+##### Headers
 Nenhum.</br>
 
-Body</br>
+##### Body
 Nenhum.</br>
 
 #### GET /user/:id
 Busca o usuário específico na base de dados.</br>
 
-Headers</br>
+##### Headers
 Nenhum.</br>
 
-Body</br>
+##### Body
 Nenhum.</br>
 
 #### DELETE /user/:id
 Deleta o usuário específico na base de dados.</br>
 
-Headers</br>
+##### Headers
 Nenhum.</br>
 
-Body</br>
+##### Body
 Nenhum.</br>
 
 #### PACTH /user/:id/walltet
 Adiciona saldo na carteira do usuário na base de dados.</br>
 
-Headers </br>
+##### Headers </br>
 Nenhum.</br>
 
-Body
+##### Body
 | Nome | Tipo | Requerido | Descrição |
 |---|---|---|---|
 | amount | number | Sim | Saldo a ser adicionado |
@@ -106,10 +106,10 @@ Body
 #### POST /room
 Cria um novo quarto na base de dados.</br>
 
-Headers</br>
+##### Headers
 Nenhum.</br>
 
-Body
+##### Body
 | Nome | Tipo | Requerido | Descrição |
 |---|---|---|---|
 | name | string | Sim | Nome do quarto |
@@ -124,37 +124,37 @@ Exemplo </br>
 #### GET /room
 Busca todos os quartos na base de dados.</br>
 
-Headers </br>
+##### Headers </br>
 Nenhum.</br>
 
-Body </br>
+##### Body </br>
 Nenhum.</br>
 
 #### GET /room/:id
 Busca o quarto específico na base de dados.</br>
 
-Headers </br>
+##### Headers </br>
 Nenhum.</br>
 
-Body </br>
+##### Body </br>
 Nenhum.
 
 #### DELETE /room/:id
 Deleta o quarto específico na base de dados.</br>
 
-Headers </br>
+##### Headers </br>
 Nenhum.</br>
 
-Body</br> 
+##### Body 
 Nenhum.</br>
 
 #### PACTH /room/:id
 Atualiza o quarto na base de dados.</br>
 
-Headers</br>
+##### Headers
 Nenhum.</br>
 
-Body
+##### Body
 | Nome | Tipo | Requerido | Descrição |
 |---|---|---|---|
 | name | string | Sim | Nome do quarto |
@@ -169,10 +169,10 @@ Body
 #### POST /reservations
 Cria uma nova reserva na base de dados.</br>
 
-Headers</br>
+##### Headers
 Nenhum.</br>
 
-Body
+##### Body
 | Nome | Tipo | Requerido | Descrição |
 |---|---|---|---|
 | roomId | Array | Sim | Id do Quarto |
@@ -193,17 +193,17 @@ Exemplo</br>
 #### PACTH /reservations/:id/payment
 Envia um comprovante de pagamento da reserva.</br>
 
-Headers</br>
+##### Headers
 Nenhum.</br>
 
-Body</br>
+##### Body
 Nenhum.</br>
 
 #### GET /reservations/:id/download-pdf
 Gera um PDF com as informações da reserva.</br>
 
-Headers</br>
+##### Headers
 Nenhum.</br>
 
-Body</br>
+##### Body
 Nenhum.</br>

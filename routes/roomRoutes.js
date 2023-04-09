@@ -1,112 +1,106 @@
-const router = require('express').Router()
-const Room =  require('../models/Room')
+const router = require("express").Router();
+const Room = require("../models/Room");
 
 //CREATE
 router.post("/", async (req, res) => {
-
-  const { avaiable, type } = req.body;
+  const { name, price } = req.body;
 
   const room = {
-    avaiable,
-    type
+    name,
+    price,
   };
 
   try {
-    if(!avaiable && !type){
-        res.status(422).json({message: 'Campos obrigatorios'})
-        return
+    if (!name) {
+      res.status(422).json({ message: "Nome do quarto obrigatório" });
+      return;
     }
     await Room.create(room);
 
-    res.status(201).json({ message: "Quarto inserido no sistema com sucesso!" });
+    res
+      .status(201)
+      .json({ message: "Quarto inserido no sistema com sucesso!" });
   } catch (error) {
     res.status(500).json({ erro: error });
   }
 });
 
 //READ
-router.get('/', async (req, res) => {
-    try {
-        const rooms = await Room.find()
+router.get("/", async (req, res) => {
+  try {
+    const rooms = await Room.find();
 
-        if(!rooms){
-            res.status(422).json({message: 'Quartos nao encontrados'})
-            return
-        }
-
-        res.status(200).json(rooms)
-
-    } catch (error) {
-        res.status(500).json({ erro: error });
+    if (!rooms) {
+      res.status(422).json({ message: "Quartos não encontrados" });
+      return;
     }
-})
 
-router.get('/:id', async (req, res) => {
+    res.status(200).json(rooms);
+  } catch (error) {
+    res.status(500).json({ erro: error });
+  }
+});
 
-    const id = req.params.id
+router.get("/:id", async (req, res) => {
+  const id = req.params.id;
 
-    try {
-        const room = await Room.findOne({_id: id})
+  try {
+    const room = await Room.findOne({ _id: id });
 
-        if(!room){
-            res.status(422).json({message: 'Quarto nao encontrado'})
-            return
-        }
-
-        res.status(200).json(room)
-
-    } catch (error) {
-        res.status(500).json({ erro: error });
+    if (!room) {
+      res.status(422).json({ message: "Quarto não encontrado" });
+      return;
     }
-})
+
+    res.status(200).json(room);
+  } catch (error) {
+    res.status(500).json({ erro: error });
+  }
+});
 
 //UPDATE
-router.patch('/:id', async (req, res) => {
+router.patch("/:id", async (req, res) => {
+  const id = req.params.id;
+  const { name, price } = req.body;
 
-    const id = req.params.id
-    const { avaiable, type } = req.body;
+  const room = {
+    name,
+    price,
+  };
 
-    const room = {
-      avaiable,
-      type
-    };
+  try {
+    const updated = await Room.updateOne({ _id: id }, room);
 
-    try {
-        const updated = await Room.updateOne({_id: id}, room)
-
-        if(updated.matchedCount === 0){
-            res.status(422).json({message: 'Quarto nao encontrado'})
-            return
-        }
-
-        res.status(200).json(room)
-
-    } catch (error) {
-        res.status(500).json({ erro: error });
+    if (updated.matchedCount === 0) {
+      res.status(422).json({ message: "Quarto não encontrado" });
+      return;
     }
-})
+
+    res.status(200).json(room);
+  } catch (error) {
+    res.status(500).json({ erro: error });
+  }
+});
 
 //DELETE
 
-router.delete('/:id', async (req, res) => {
+router.delete("/:id", async (req, res) => {
+  const id = req.params.id;
 
-    const id = req.params.id
+  const room = await Room.findOne({ _id: id });
 
-    const room = await Room.findOne({_id: id})
+  if (!room) {
+    res.status(422).json({ message: "Quarto não encontrado" });
+    return;
+  }
 
-    if(!room){
-        res.status(422).json({message: 'Quarto nao encontrado'})
-        return
-    }
+  try {
+    const room = await Room.deleteOne({ _id: id });
 
-    try {
-        const room = await Room.deleteOne({_id: id})
+    res.status(200).json({ message: "Quarto deletado com sucesso!" });
+  } catch (error) {
+    res.status(500).json({ erro: error });
+  }
+});
 
-        res.status(200).json({message: 'Quarto deletado'})
-
-    } catch (error) {
-        res.status(500).json({ erro: error });
-    }
-})
-
-module.exports = router
+module.exports = router;

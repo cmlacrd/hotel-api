@@ -1,8 +1,16 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
-const Room = mongoose.model('Room', {
-  avaiable: Boolean,
-  type: String
-})
+const roomSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+  price:{
+    type: Number,
+    required: true,
+  }
+});
 
-module.exports = Room
+const Room = mongoose.model("Room", roomSchema);
+
+module.exports = Room;

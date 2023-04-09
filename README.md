@@ -1,12 +1,12 @@
-#Hotel API
+# Hotel API
 Uma API para gerenciamento de reservas de hotéis.
 
-##Descrição
+## Descrição
 Este projeto consiste em uma API RESTful que possibilita a criação de reservas em hotel.
 
 A API foi construída utilizando Node.js com o framework Express, e o banco de dados MongoDB foi utilizado para armazenar as informações das reservas e usuários.
 
-##Funcionalidades
+## Funcionalidades
 Cadastro de usuários
 Consulta de usuários
 Exclusão de usuários
@@ -21,24 +21,24 @@ Criação de reservas
 Upload de pagamento de reservas
 Download de confirmação de reservas
 
-##Instalação
+## Instalação
 Clone o repositório
-git clone https://github.com/seu-usuario/hotel-api.git
+git clone https://github.com/cmlacrd/hotel-api.git
 
-##Instale as dependências
+## Instale as dependências
 npm install
 
-##Configure as variáveis de ambiente
+## Configure as variáveis de ambiente
 Crie um arquivo .env na raiz do projeto com as seguintes variáveis de ambiente:
 DB_USER=admin
 DB_PASSWORD=m9rrQzBFULMUzvFT
 
-##Inicie o servidor
+## Inicie o servidor
 npm start
 
-##Endpoints
+## Endpoints
 
-###Usuários
+### Usuários
 POST /user
 Cria um novo usuário na base de dados.
 
@@ -101,7 +101,7 @@ amount number Sim Saldo a ser adicionado
 "amount": 10000
 }
 
-###Quartos
+### Quartos
 POST /room
 Cria um novo quarto na base de dados.
 
@@ -163,7 +163,7 @@ price number Sim preço do quarto
 "price": 1000
 }
 
-###Reservas
+### Reservas
 POST /reservations
 Cria uma nova reserva na base de dados.
 

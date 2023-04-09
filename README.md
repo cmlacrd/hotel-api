@@ -7,19 +7,19 @@ Este projeto consiste em uma API RESTful que possibilita a criação de reservas
 A API foi construída utilizando Node.js com o framework Express, e o banco de dados MongoDB foi utilizado para armazenar as informações das reservas e usuários.
 
 ## Funcionalidades
-Cadastro de usuários
-Consulta de usuários
-Exclusão de usuários
-Atualização de saldo de usuários
+- Cadastro de usuários
+- Consulta de usuários
+- Exclusão de usuários
+- Atualização de saldo de usuários
 
-Cadastro de quartos
-Exclusão de quartos
-Consulta de quartos
-Atualização de quartos
+- Cadastro de quartos
+- Exclusão de quartos
+- Consulta de quartos
+- Atualização de quartos
 
-Criação de reservas
-Upload de pagamento de reservas
-Download de confirmação de reservas
+- Criação de reservas
+- Upload de pagamento de reservas
+- Download de confirmação de reservas
 
 ## Instalação
 Clone o repositório
@@ -39,7 +39,7 @@ npm start
 ## Endpoints
 
 ### Usuários
-POST /user
+#### POST /user
 Cria um novo usuário na base de dados.
 
 Headers
@@ -60,7 +60,7 @@ Exemplo
 "wallet": 1500
 }
 
-GET /user
+#### GET /user
 Busca todos os usuários na base de dados.
 
 Headers
@@ -69,7 +69,7 @@ Nenhum.
 Body
 Nenhum.
 
-GET /user/:id
+#### GET /user/:id
 Busca o usuário específico na base de dados.
 
 Headers
@@ -78,7 +78,7 @@ Nenhum.
 Body
 Nenhum.
 
-DELETE /user/:id
+#### DELETE /user/:id
 Deleta o usuário específico na base de dados.
 
 Headers
@@ -87,7 +87,7 @@ Nenhum.
 Body
 Nenhum.
 
-PACTH /user/:id/walltet
+#### PACTH /user/:id/walltet
 Adiciona saldo na carteira do usuário na base de dados.
 
 Headers
@@ -102,7 +102,7 @@ amount number Sim Saldo a ser adicionado
 }
 
 ### Quartos
-POST /room
+#### POST /room
 Cria um novo quarto na base de dados.
 
 Headers
@@ -120,7 +120,7 @@ Exemplo
 "price": 750
 }
 
-GET /room
+#### GET /room
 Busca todos os quartos na base de dados.
 
 Headers
@@ -129,7 +129,7 @@ Nenhum.
 Body
 Nenhum.
 
-GET /room/:id
+#### GET /room/:id
 Busca o quarto específico na base de dados.
 
 Headers
@@ -138,7 +138,7 @@ Nenhum.
 Body
 Nenhum.
 
-DELETE /room/:id
+#### DELETE /room/:id
 Deleta o quarto específico na base de dados.
 
 Headers
@@ -147,7 +147,7 @@ Nenhum.
 Body
 Nenhum.
 
-PACTH /room/:id
+#### PACTH /room/:id
 Atualiza o quarto na base de dados.
 
 Headers
@@ -164,7 +164,7 @@ price number Sim preço do quarto
 }
 
 ### Reservas
-POST /reservations
+#### POST /reservations
 Cria uma nova reserva na base de dados.
 
 Headers
@@ -173,11 +173,11 @@ Nenhum.
 Body
 | Nome | Tipo | Requerido |Descrição|
 |---|---|---|---|---|
-| roomId  | Array  | Sim | Id do Quarto |
+| roomId  | Array | Sim | Id do Quarto |
 | userId  | string | Sim | Id do usuário que está fazendo a reserva |
-| checkin |   | date | Sim | Data de Check-in |
-| checkout  | date | Sim | Data de Check-out |
-| numberRooms  | number | Sim | Número de quartos que estão sendo reservados |
+| checkin | date | Sim | Data de Check-in |
+| checkout | date | Sim | Data de Check-out |
+| numberRooms | number | Sim | Número de quartos que estão sendo reservados |
 
 Exemplo
 {
@@ -188,7 +188,7 @@ Exemplo
     "numberRooms": 2
 }
 
-PACTH /reservations/:id/payment
+#### PACTH /reservations/:id/payment
 Envia um comprovante de pagamento da reserva.
 
 Headers
@@ -197,7 +197,7 @@ Nenhum.
 Body
 Nenhum.
 
-GET /reservations/:id/download-pdf
+#### GET /reservations/:id/download-pdf
 Gera um PDF com as informações da reserva.
 
 Headers
